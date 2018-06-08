@@ -27,6 +27,10 @@ ICE异步SERVER，并集成libgo携程库，实现中间件服务（示例，具
 运行:
   1. 参照'midware-ice-cluster'搭建基本的ICE集群（也可以是单机环境）
   2. 编译生成midware-ice-service和midware-ice-service-client
+     在根目录下执行:
+     #] . ./setenv.sh
+     #] cmake .
+     #] make
   3. 与config下文件部署在同一目录
   4. sh ctrl.sh查看操作说明
      第一次部署需要: sh ctrl.sh add 
