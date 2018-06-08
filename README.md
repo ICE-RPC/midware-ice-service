@@ -2,10 +2,16 @@
 
 ICE异步SERVER，并集成libgo携程库，实现中间件服务（示例，具体的服务逻辑需要DIY）
 
+依赖:
+  ice
+  libgo
+  boost-1.61.0
+
 安装约定:
 
 依赖的CPP库统一安装在目录: /home/apps/cpplibs/下，如：
-  boost-1.61安装目录: /home/apps/cpplibs/boost-1.61.0
+  ice安装目录: /home/apps/cpplibs/Ice-3.6.4
+  boost-1.61.0安装目录: /home/apps/cpplibs/boost-1.61.0
   libgo安装目录: /home/apps/cpplibs/libgo (master)
 
 接口约定:
@@ -28,9 +34,9 @@ ICE异步SERVER，并集成libgo携程库，实现中间件服务（示例，具
   1. 参照'midware-ice-cluster'搭建基本的ICE集群（也可以是单机环境）
   2. 编译生成midware-ice-service和midware-ice-service-client
      在根目录下执行:
-     #] . ./setenv.sh
-     #] cmake .
-     #] make
+     . ./setenv.sh
+     cmake .
+     make
   3. 与config下文件部署在同一目录
   4. sh ctrl.sh查看操作说明
      第一次部署需要: sh ctrl.sh add 
@@ -39,6 +45,7 @@ ICE异步SERVER，并集成libgo携程库，实现中间件服务（示例，具
      停止服务: sh ctrl.sh stop
      升级服务: sh ctrl.sh stop_disable  ## 应为ICE框架当请求到来时会自动调起服务，所以必须先disable后，再更新binary程序；因为在程序运行时更新binary会失败，无法完成升级，所以需要stop and disable。
      升级完成: sh ctrl.sh start_enable  ## 升级完后，通过start_enable启动服务
+  5. 测试 ././midware-ice-service-client 
 
 
 欢迎交流QQ群: 92799001
