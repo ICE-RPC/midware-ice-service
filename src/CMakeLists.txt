@@ -42,7 +42,6 @@ target_link_libraries(midware-ice-service
     libgo dl
     pthread
     Ice IceUtil
-    evhtp event event_openssl event_core event_extra event_pthreads event_extra
     boost_thread boost_system
 )
 
@@ -56,7 +55,4 @@ target_link_libraries(midware-ice-service-client
     pthread
     Ice IceUtil
 )
-
-#install(TARGETS midware-ice-service DESTINATION ${TARGET})
-#install(TARGETS midware-ice-service-client DESTINATION ${TARGET}
 
