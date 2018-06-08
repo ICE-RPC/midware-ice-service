@@ -1,0 +1,11 @@
+{
+    "SERVICE": "midware-ice-service",
+
+    "logging": {
+        "debug": true,
+        "logdir": "./log"
+    },
+
+    "DIY": "xxx"
+}
+

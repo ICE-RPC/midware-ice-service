@@ -1,0 +1,46 @@
+<icegrid>
+  <application name="MidwareTestApplication">
+
+    <server-template id="MidwareTestServerT">
+      <parameter name="index"/>
+      <parameter name="workdir"/>
+      <parameter name="binary"/>
+      <server id="${binary}@${index}" pwd="${workdir}" exe="./${binary}" activation="on-demand">
+        <option>config.json</option>
+
+        <env>LD_LIBRARY_PATH=/home/apps/cpplibs:/home/apps/cpplibs/boost-1.61.0/lib:/home/apps/cpplibs/Ice-3.6.4/lib64:/home/apps/cpplibs/Ice-3.6.4/lib64/c++11:/home/apps/cpplibs/db-5.3.28/lib:/home/apps/cpplibs/libgo/lib:$LD_LIBRARY_PATH</env>
+
+        <property name="AdapterIdentity" value="MidwareTestAdapter"/>
+        <property name="ServiceIdentity" value="midware-ice-service"/>
+
+        <property name="IceMX.Metrics.Debug.GroupBy" value="id"/>
+        <property name="IceMX.Metrics.Debug.Disabled" value="1"/>
+        <property name="IceMX.Metrics.ByParent.GroupBy" value="parent"/>
+        <property name="IceMX.Metrics.ByParent.Disabled" value="1"/>
+
+        <property name="Ice.TCP.Backlog" value="1024"/>
+        <!--property name="Ice.TCP.RcvSize" value="65535"/-->
+        <!--property name="Ice.TCP.SndSize" value="65535"/-->
+
+        <property name="Ice.Trace.ThreadPool" value="1"/>
+        <property name="Ice.ThreadPool.Server.Serialize" value="0"/>
+        <property name="Ice.ThreadPool.Server.Size" value="8"/>
+        <property name="Ice.ThreadPool.Server.SizeMax" value="256"/>
+        <property name="Ice.ThreadPool.Server.ThreadIdleTime" value="300"/>
+
+        <!--property name="Ice.Warn.Connections" value="0"/-->
+
+        <adapter name="MidwareTestAdapter" replica-group="MidwareTestReplicaGroup"/>
+      </server>
+    </server-template>
+
+    <replica-group id="MidwareTestReplicaGroup">
+      <load-balancing type="random" n-replicas="3"/>
+      <object identity="midware-ice-service" type="::news::MidwareTestService"/>
+    </replica-group>
+
+    <node name="localhost.localdomain">
+      <server-instance template="MidwareTestServerT" workdir="/home/apps/midware-ice-service" binary="midware-ice-service" index="localhost.localdomain"/>
+    </node>
+  </application>
+</icegrid>
