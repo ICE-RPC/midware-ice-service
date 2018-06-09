@@ -48,7 +48,7 @@ ICE异步SERVER，并集成libgo携程库，实现中间件服务（示例，具
      - 停止服务: sh ctrl.sh stop
      - 升级服务: sh ctrl.sh stop_disable  ## 应为ICE框架当请求到来时会自动调起服务，所以必须先disable后，再更新binary程序；因为在程序运行时更新binary会失败，无法完成升级，所以需要stop and disable。
      - 升级完成: sh ctrl.sh start_enable  ## 升级完后，通过start_enable启动服务
-  5. 测试 ././midware-ice-service-client 
+  5. 测试 ./midware-ice-service-client 
 
 
 #### 欢迎交流 QQ群: 92799001

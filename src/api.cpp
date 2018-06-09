@@ -125,8 +125,7 @@ bool DIY2(Request* request) {
             request->Rqstid(_rqstid);
         }
         // TODO: DIY protocol
-        std::string country = JSON::GetString(doc, "country", "");
-        std::string lang = JSON::GetString(doc, "lang", "");
+        long match_id = JSON::GetInt64(doc, "match_id", 0);
 
         // TODO: DIY process
         resp = "{\"code\":1,\"message\":\"DIY2: hello, world!\"}";
