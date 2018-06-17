@@ -12,8 +12,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src/
     ${CMAKE_SOURCE_DIR}/third-party
     ${CMAKE_SOURCE_DIR}/third-party/rapidjson
-    ${CMAKE_SOURCE_DIR}/third-party/evhtp/include
-    ${CMAKE_SOURCE_DIR}/third-party/libcuckoo/include
     /home/apps/cpplibs/Ice-3.6.4/include
     /home/apps/cpplibs/libgo/include
     /home/apps/cpplibs/boost-1.61.0/include
@@ -23,8 +21,6 @@ link_directories(
     ${CMAKE_SOURCE_DIR}/
     ${CMAKE_SOURCE_DIR}/common/
     ${CMAKE_SOURCE_DIR}/src/
-    ${CMAKE_SOURCE_DIR}/third-party/evhtp/lib
-    ${CMAKE_SOURCE_DIR}/third-party/libcuckoo/lib
     /home/apps/cpplibs/Ice-3.6.4/lib64/c++11
     /home/apps/cpplibs/libgo/lib
     /home/apps/cpplibs/boost-1.61.0/lib
